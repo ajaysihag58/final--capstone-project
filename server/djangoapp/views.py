@@ -32,15 +32,10 @@ def login_user(request):
 
 
 # Create a `logout_request` view to handle sign out request
+@csrf_exempt
 def logout_request(request):
-    if request.method == 'POST':  # Logout via POST for better CSRF protection
-        logout(request)
-        return JsonResponse(
-            {"success": True, "message": "Logged out successfully"}
-        )
-    return JsonResponse(
-        {"success": False, "error": "Invalid request method"}, status=400
-    )
+    logout(request)
+    return JsonResponse({"userName": ""})
 
 
 # Create a `registration` view to handle sign up request
@@ -103,8 +98,22 @@ def get_dealerships(request, state="All"):
     else:
         endpoint = "/fetchDealers/" + state
     dealerships = get_request(endpoint)
-    return JsonResponse(
-        {"status": 200, "dealers": dealerships})
+    
+    cleaned_dealers = []
+    if isinstance(dealerships, list):
+        for d in dealerships:
+            cleaned_dealers.append({
+                "id": d.get("id"),
+                "city": d.get("city"),
+                "state": d.get("state"),
+                "address": d.get("address"),
+                "zip": d.get("zip"),
+                "lat": d.get("lat"),
+                "long": d.get("long"),
+                "short_name": d.get("short_name"),
+                "full_name": d.get("full_name")
+            })
+    return JsonResponse({"status": 200, "dealers": cleaned_dealers})
 
 
 # Method to view reviews for individual dealer
@@ -138,9 +147,22 @@ def get_dealer_details(request, dealer_id):
     if dealer_id:
         endpoint = "/fetchDealer/" + str(dealer_id)
         dealership = get_request(endpoint)
-        return JsonResponse({"status": 200, "dealer": dealership})
+        if isinstance(dealership, dict):
+            cleaned_dealer = {
+                "id": dealership.get("id"),
+                "city": dealership.get("city"),
+                "state": dealership.get("state"),
+                "address": dealership.get("address"),
+                "zip": dealership.get("zip"),
+                "lat": dealership.get("lat"),
+                "long": dealership.get("long"),
+                "short_name": dealership.get("short_name"),
+                "full_name": dealership.get("full_name")
+            }
+            return JsonResponse(cleaned_dealer)
+        return JsonResponse({"error": "Failed to fetch dealer details"}, status=400)
     else:
-        return JsonResponse({"status": 400, "message": "Bad Request"})
+        return JsonResponse({"error": "Bad Request"}, status=400)
 
 
 # Create an `add_review` view to submit a review

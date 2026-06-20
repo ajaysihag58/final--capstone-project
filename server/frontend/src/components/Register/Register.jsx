@@ -68,12 +68,12 @@ const Register = () => {
           </div>
           <div>
             <img src={user_icon} className="img_icon" alt='First Name'/>
-            <input type="text"  name="first_name" placeholder="First Name" className="input_field" onChange={(e) => setFirstName(e.target.value)}/>
+            <input type="text"  name="firstName" placeholder="First Name" className="input_field" onChange={(e) => setFirstName(e.target.value)}/>
           </div>
 
           <div>
             <img src={user_icon} className="img_icon" alt='Last Name'/>
-            <input type="text"  name="last_name" placeholder="Last Name" className="input_field" onChange={(e) => setlastName(e.target.value)}/>
+            <input type="text"  name="lastName" placeholder="Last Name" className="input_field" onChange={(e) => setlastName(e.target.value)}/>
           </div>
 
           <div>
@@ -83,7 +83,7 @@ const Register = () => {
 
           <div className="input">
             <img src={password_icon} className="img_icon" alt='password'/>
-            <input name="psw" type="password"  placeholder="Password" className="input_field" onChange={(e) => setPassword(e.target.value)}/>
+            <input name="password" type="password"  placeholder="Password" className="input_field" onChange={(e) => setPassword(e.target.value)}/>
           </div>
 
         </div>

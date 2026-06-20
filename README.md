@@ -1,5 +1,8 @@
-# Dealerships Review Portal - Fullstack Software Developer Capstone Project
+# fullstack_developer_capstone - Dealerships Review Portal
 by Ajay Sihag
+
+**Repository Name**: xrwvm-fullstack_developer_capstone
+**Project Name**: fullstack_developer_capstone
 
 ## Overview
 
@@ -66,8 +69,8 @@ The solution architecture consists of the following components:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/ajaysihag58/final--capstone-project.git
-   cd final--capstone-project
+   git clone https://github.com/ajaysihag58/xrwvm-fullstack_developer_capstone.git
+   cd xrwvm-fullstack_developer_capstone
    ```
 2. **Set up virtual environment**
    ```bash

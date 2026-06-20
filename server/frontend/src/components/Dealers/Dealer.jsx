@@ -31,8 +31,10 @@ const Dealer = () => {
   
       console.log('API Response:', retobj); // Log the full response
   
-      if (retobj.status === 200 && retobj.dealer) {
-        setDealer(retobj.dealer); // Directly set the dealer object, not an array
+      if (retobj.id) {
+        setDealer(retobj); // Directly set the unwrapped dealer object
+      } else if (retobj.status === 200 && retobj.dealer) {
+        setDealer(retobj.dealer); // Fallback for wrapped legacy structure
       } else {
         console.error("Dealer data not found.");
       }

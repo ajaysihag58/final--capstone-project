@@ -73,8 +73,10 @@ const PostReview = () => {
       const res = await fetch(dealer_url, { method: "GET" });
       const retobj = await res.json();
   
-      if (retobj.status === 200) {
-        setDealer(retobj.dealer);
+      if (retobj.id) {
+        setDealer(retobj); // Accept the unwrapped dealer object
+      } else if (retobj.status === 200) {
+        setDealer(retobj.dealer); // Fallback for wrapped legacy structure
       }
     };
   
