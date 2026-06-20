@@ -1,5 +1,5 @@
 # Dealerships Review Portal - Fullstack Software Developer Capstone Project
-by Sierra Ripoche
+by Ajay Sihag
 
 ## Overview
 
@@ -66,8 +66,8 @@ The solution architecture consists of the following components:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/SiRipo92/Fullstack_Dev_Capstone_Project
-   cd Fullstack_Dev_Capstone_Project
+   git clone https://github.com/ajaysihag58/final--capstone-project.git
+   cd final--capstone-project
    ```
 2. **Set up virtual environment**
    ```bash
@@ -145,4 +145,4 @@ The solution architecture consists of the following components:
 - Lavanya - Full-Stack Developer
 - Yan Luo - Backend Developer
 - Priya - Frontend Developer
-- **Sierra Ripoche - Full-Stack Developer**
+- **Ajay Sihag - Full-Stack Developer**
